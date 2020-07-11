@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+  postgres_container:
+      image: postgres
+      restart: always
+      environment:
+        POSTGRES_DB: nexodb
+        POSTGRES_USER: zgillis
+        POSTGRES_PASSWORD: laptop
+      ports:
+        - 5432:5432
+      volumes:
+        - psql-data:/var/lib/postgresql/data
+  adminer_postgres_container:
+      image: adminer:latest
+      restart: always
+      environment:
+        ADMINER_DEFAULT_SERVER: postgres_container
+      ports:
+        - 9090:8080
+volumes:
+  psql-data:
+#    driver: host
+    driver_opts:
+      device: /Users/zgillis/Docker/data/psql-data 
+      type: none
+      o: bind
+
