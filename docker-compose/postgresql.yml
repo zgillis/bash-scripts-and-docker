@@ -6,7 +6,7 @@ services:
       environment:
         POSTGRES_DB: nexodb
         POSTGRES_USER: zgillis
-        POSTGRES_PASSWORD: laptop
+        POSTGRES_PASSWORD: password
       ports:
         - 5432:5432
       volumes:
@@ -20,7 +20,6 @@ services:
         - 9090:8080
 volumes:
   psql-data:
-#    driver: host
     driver_opts:
       device: /Users/zgillis/Docker/data/psql-data 
       type: none
